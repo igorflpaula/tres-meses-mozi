@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>3 meses, Mozi ❤️</title>
+  <meta name="description" content="Para a mulher mais incrível do mundo.">
+  <meta name="theme-color" content="#b3001b">
+  <meta property="og:title" content="3 meses, Mozi ❤️">
+  <meta property="og:description" content="Para a mulher mais incrível do mundo.">
+  <meta property="og:image" content="img/capa.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <!-- Tela de abertura -->
+  <div id="intro" class="intro">
+    <div class="envelope" id="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body">
+        <span class="envelope-heart">❤</span>
+      </div>
+    </div>
+    <p class="intro-text">Oiiiie Moziiii<br>Tenho uma coisa pra você.</p>
+    <button class="btn" id="open-btn">Abrir ❤️</button>
+  </div>
+
+  <div id="hearts-layer" aria-hidden="true"></div>
+
+  <!-- Capa -->
+  <header class="hero">
+    <div class="hero-photo" style="background-image: url('img/capa.jpg')"></div>
+    <img class="hero-img" src="img/capa.jpg" alt="">
+
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">3 meses com</p>
+      <h1 class="name">
+        Aline Luri Yogi
+        <span class="future" title="em breve 💍">de Paula</span>
+      </h1>
+      <p class="subtitle">a mulher mais incrível do mundo</p>
+      <a href="#juntos" class="scroll-hint" aria-label="Rolar para baixo">
+        <span></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section nicknames reveal">
+      <p class="nick nick-main">MEU DIAMANTE 💎</p>
+      <p class="nick">Meu pedacinho de <strong>EXCELENTE</strong> caminho</p>
+      <p class="nick">Minha estrada de tijolos dourados</p>
+    </section>
+
+    <!-- Contador de tempo juntos -->
+    <section id="juntos" class="section together reveal">
+      <h2 class="script">Mozi &amp; Amor</h2>
+      <p class="lead">
+        Namorando desde o <strong>primeiro dia</strong> que a gente se encontrou: <strong>15/07</strong>.
+      </p>
+      <blockquote class="quote">
+        A gente foi rápido, porque quando o amor é de verdade, não precisa esperar meses ou anos.
+        <strong>É instantâneo.</strong>
+      </blockquote>
+      <p class="lead">E desde então, cada segundo contou:</p>
+      <div class="counter" id="together-counter">
+        <div><span data-unit="months">0</span><small>meses</small></div>
+        <div><span data-unit="days">0</span><small>dias</small></div>
+        <div><span data-unit="hours">0</span><small>horas</small></div>
+        <div><span data-unit="minutes">0</span><small>min</small></div>
+        <div><span data-unit="seconds">0</span><small>seg</small></div>
+      </div>
+    </section>
+
+    <!-- Galeria -->
+    <section class="section gallery-section">
+      <h2 class="title reveal">Nós dois</h2>
+      <p class="lead reveal">Algumas das minhas fotos favoritas da gente.</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <!-- Momentos especiais -->
+    <section class="section keepsakes reveal">
+      <svg class="chain-heart" viewBox="0 0 600 540" aria-hidden="true">
+        <defs>
+          <path id="heart-path" d="M300 504 C120 372, 24 264, 24 156 C24 78, 84 24, 162 24 C222 24, 270 60, 300 114 C330 60, 378 24, 438 24 C516 24, 576 78, 576 156 C576 264, 480 372, 300 504 Z"/>
+        </defs>
+        <use href="#heart-path" class="chain-bar"/>
+        <use href="#heart-path" class="chain-link"/>
+        <use href="#heart-path" class="chain-hole"/>
+      </svg>
+      <img src="img/flores.jpg" alt="Nosso buquê de flores vermelhas" loading="lazy">
+      <img src="img/aliancas.jpg" alt="Nossas alianças" loading="lazy">
+      <img src="img/maos.jpg" alt="Nossas mãos" loading="lazy">
+    </section>
+
+    <!-- Amão x Amontão -->
+    <section class="section love-battle reveal">
+      <h2 class="title">Quem ama mais?</h2>
+      <p class="lead">Aperta aí e vamos ver.</p>
+      <div class="battle">
+        <button class="battle-btn hers" id="btn-amao">
+          <span class="who">Mozi</span>
+          <span class="phrase">EU TE AMÃO</span>
+          <span class="score" id="score-amao">0</span>
+        </button>
+        <span class="vs">vs</span>
+        <button class="battle-btn mine" id="btn-amontao">
+          <span class="who">Amor</span>
+          <span class="phrase">EU TE AMONTÃO</span>
+          <span class="score" id="score-amontao">0</span>
+        </button>
+      </div>
+      <p class="battle-verdict" id="battle-verdict">&nbsp;</p>
+    </section>
+
+    <!-- Luke -->
+    <section class="section luke reveal">
+      <div class="luke-card">
+        <img class="luke-photo" src="img/luke.jpg" alt="Mozi com o Luke no colo" loading="lazy">
+        <div>
+          <h2 class="title">E o nosso filho, Luke</h2>
+          <p>Que eu adotei como meu filho. Amo vocês dois.</p>
+          <p class="muted">Luke, cuida da sua mãe enquanto o pai não volta. 🐾</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mapa / distância -->
+    <section class="section distance" id="distancia">
+      <h2 class="title reveal"><span id="km">6.400</span> km de saudade</h2>
+      <p class="lead reveal">
+        Essa distância tá sendo difícil, mas tem um aviãozinho aqui que já sabe o caminho de casa.
+      </p>
+
+      <div class="map-wrap reveal">
+        <div id="map"></div>
+        <div class="map-legend">
+          <span><i class="dot dot-done"></i>já passou</span>
+          <span><i class="dot dot-todo"></i>falta</span>
+        </div>
+      </div>
+
+      <div class="progress reveal">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <p><strong id="progress-pct">0%</strong> do tempo longe já ficou pra trás</p>
+      </div>
+
+      <button class="btn reveal" id="fly-btn">Me leva pra casa ✈️</button>
+
+      <div class="countdown-box reveal">
+        <p class="eyebrow">meu voo pousa em</p>
+        <div class="counter" id="countdown">
+          <div><span data-unit="days">0</span><small>dias</small></div>
+          <div><span data-unit="hours">0</span><small>horas</small></div>
+          <div><span data-unit="minutes">0</span><small>min</small></div>
+          <div><span data-unit="seconds">0</span><small>seg</small></div>
+        </div>
+        <p class="muted">22/11, às 15:30 (horário de Brasília)</p>
+      </div>
+
+      <div class="saudade reveal">
+        <p class="saudade-title">Sinto sua falta <strong>PELO MENOS 3600x por hora</strong></p>
+        <p class="saudade-sub">Desde que eu saí, já foram</p>
+        <p class="saudade-count" id="saudade-count">0</p>
+        <p class="saudade-sub">saudades, <strong>PELO MENOS</strong></p>
+      </div>
+    </section>
+
+    <!-- Carta -->
+    <section class="section letter reveal">
+      <div class="paper">
+        <p class="script letter-greeting">Mozi,</p>
+        <p>
+          Três meses. Parece pouco no calendário, mas pra mim parece que eu te conheço
+          a vida inteira. Desde o primeiro dia que a gente se encontrou eu soube, e foi
+          por isso que eu não quis perder nem mais um dia sem te chamar de minha.
+          A gente foi rápido, eu sei. Mas quando o amor é de verdade, não precisa esperar
+          meses ou anos: é instantâneo.
+        </p>
+        <p>
+          Obrigado por cada risada, cada careta, cada "eu te amão" que chega aqui do outro lado do
+          oceano e deixa meu dia mais leve.
+        </p>
+        <p>
+          Tenho muita sorte de ter você na minha vida, agradeço todo dia por você existir,
+          por você ter aparecido na minha vida.
+        </p>
+        <p>
+          Falta pouco. Logo eu tô aí, abraçando você e o Luke.
+        </p>
+        <p class="letter-sign">
+          EU TE AMONTÃO,<br>
+          <span class="script">seu Amor, Igor</span>
+        </p>
+        <p class="letter-ps">
+          P.S.: eu fiz esse site com os olhos cheios d'água, de saudade.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Feito com amor (e muita saudade)</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Fechar">×</button>
+    <img alt="">
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
